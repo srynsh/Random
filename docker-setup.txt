@@ -40,14 +40,14 @@ This will give you an output looking like:
 +------------------------------------------------------------------------------------------------------+
 
 Now use the container Id (80176acfe18e) and type the following command:
-$ docker cp <filename> <container id>:<filename with absolute path>
+
++-----------------------------------------------------------------------+
+|  $ docker cp <filename> <container id>:<filename with absolute path>  | 
++-----------------------------------------------------------------------+
 
 Ex: If I want to copy a file in my pwd(Present working directory) called demo.txt to the root directory in a file called copy_demo.txt then I will type:
 
 +----------------------------------------------------+
 |  $ docker cp demo.txt 80176acfe18e:/copy_demo.txt  |
 +----------------------------------------------------+
-+------------------------------------------------------------------------------------+
-|  Dr.G.V.V Sharma(Sir) now please award me 10 extra marks for this extra effort ;)  |
-+------------------------------------------------------------------------------------+
 
