@@ -1,0 +1,53 @@
+Docker Setup:
+
+Step 1) Install docker for MacOS Intel from: https://docs.docker.com/desktop/mac/install/
+
+Step 2) Download the official docker image from: https://hub.docker.com/_/ubuntu
+                        				(OR)
+        Alternatively on the terminal type: $ docker pull ubuntu
+
+Step 3) Now you will see that this image shows up under images (inside the local section) in the docker app.
+Step 4) Now run this and ssh into this container (There will be a button you can press to open the terminal or there is also the connection command that you can put in your terminal to ssh manually).
+
+General Setup:
+
+Step 1) The ubuntu installation is very minimal(I mean very very minimal), also it does not have a shell environment it starts with so we have to do setup every thing in this.
+Step 2) To be able to use bash script and all the standard keys like (Up arrow, tab key) type /bin/bash
+Step 3) This will automatically log you in as the root user(No way to login as non root user)
+Step 4) Run apt update
+Step 5) Then you have to install git and curl (apt install curl, apt install git) to be able to install the other basic packages.
+
++-----------------------------------------------------------------------------------------------------------------+
+|  NOTE: sudo is not needed as you are logged in as root and also the sudo command is not defined in this image.  |
++-----------------------------------------------------------------------------------------------------------------+
+
+Sharing files between Docker and the host:
+
+You can do by using the docker cp command.
+
+First get the docker image Id by using the following command:
+
++------------------+
+|  $ docker ps -a  |
++------------------+
+
+This will give you an output looking like:
+
++------------------------------------------------------------------------------------------------------+
+|   CONTAINER ID |  IMAGE         |  COMMAND |  CREATED    |  STATUS       |  PORTS  |   NAMES         |
++----------------+----------------+----------+-------------+---------------+---------+-----------------+
+|   80176acfe18e |  ubuntu:latest |  "bash"  |  3 days ago |  Up 2 minutes |         |   vibrant_allen |
++------------------------------------------------------------------------------------------------------+
+
+Now use the container Id (80176acfe18e) and type the following command:
+$ docker cp <filename> <container id>:<filename with absolute path>
+
+Ex: If I want to copy a file in my pwd(Present working directory) called demo.txt to the root directory in a file called copy_demo.txt then I will type:
+
++----------------------------------------------------+
+|  $ docker cp demo.txt 80176acfe18e:/copy_demo.txt  |
++----------------------------------------------------+
++------------------------------------------------------------------------------------+
+|  Dr.G.V.V Sharma(Sir) now please award me 10 extra marks for this extra effort ;)  |
++------------------------------------------------------------------------------------+
+
